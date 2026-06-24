@@ -1,8 +1,8 @@
-# Dahab Server
+# Python Server
 
 A lightweight static-file web server written from scratch in Python using raw
 sockets — no frameworks, no `http.server`. It serves the static site contained
-in the `dahab/` folder (a restaurant/menu site with HTML, CSS, JS and images).
+in your folder (for example a restaurant/menu site with HTML, CSS, JS and images).
 
 ## Features
 
@@ -15,15 +15,15 @@ in the `dahab/` folder (a restaurant/menu site with HTML, CSS, JS and images).
 - **Correct content types** — MIME types are detected per file (`mimetypes`), so
   CSS, JS and images are served correctly, not as `text/html`.
 - **Path-traversal protection** — requests are resolved and validated to stay
-  inside the `dahab/` directory, blocking attacks like `/../secret.txt`.
+  inside the `yoursite_folder/` directory, blocking attacks like `/../secret.txt`.
 - **Clean shutdown** — `Ctrl+C` stops the server and closes the socket.
 
 ## Project structure
 
 ```
-dahab_server/
+server/
 ├── main.py        # the server
-└── dahab/         # static site served by the server
+└── yoursite_folder/         # static site served by the server
     ├── index.html
     ├── menu.html
     ├── css/
@@ -55,12 +55,12 @@ Then open <http://127.0.0.1:2000/> in your browser.
 
 Settings live at the top of `main.py`:
 
-| Setting           | Default       | Description                                  |
-| ----------------- | ------------- | -------------------------------------------- |
-| `ROOT`            | `dahab`       | Folder whose files are served.               |
-| `HOST`            | `127.0.0.1`   | Interface to bind. Use `0.0.0.0` to expose.  |
-| `PORT`            | `2000`        | Port to listen on.                           |
-| `MAX_CONNECTIONS` | `100`         | Max simultaneous client connections.         |
+| Setting           | Default         | Description                                  |
+| ----------------- |-----------------| -------------------------------------------- |
+| `ROOT`            | `yoursite_name` | Folder whose files are served.               |
+| `HOST`            | `127.0.0.1`     | Interface to bind. Use `0.0.0.0` to expose.  |
+| `PORT`            | `2000`          | Port to listen on.                           |
+| `MAX_CONNECTIONS` | `100`           | Max simultaneous client connections.         |
 
 ## Making it accessible online
 
